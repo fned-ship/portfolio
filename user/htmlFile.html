@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:ital,wght@1,500&family=Roboto:wght@100&display=swap");
+    
+    *, *::before, *::after {
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    :root{
+        --primary-font-size:1.75rem;
+        --secondary-font-size:0.9rem;
+        --third-font-size:1.5rem;
+    
+        --primary-color:#0b2468;
+        --secondary-color:rgb(0, 0, 69);
+    }
+    
+    #main{
+        display: flex;
+        flex-direction: row;
+        width:750px;
+    }
+    
+    #section1{
+        width: 35%;
+        min-height: 100vh;
+        background-color: var(--primary-color);
+        display: flex;
+        flex-direction: column;
+    }
+    
+    #section2{
+        width: 75%;
+        min-height: 100vh;
+        background-color: rgb(255, 255, 255);
+    }
+    
+    .part1{
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        justify-content: center;
+    }
+    
+    #part1{
+        align-items: center;
+    }
+    
+    #part1 img{
+        margin-top: 15px;
+        width: 80%;
+    }
+    
+    #part1 h4 , #part1 h1{
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+    
+    h1{   /* #part1 */
+        font-size: var(--primary-font-size);
+        font-weight: 500px;
+        color: rgb(212, 216, 219);
+        margin: 0;
+        word-break: break-all
+    }
+    
+    h4{   /* #part1 */
+        font-size: var(--secondary-font-size);
+        font-weight: 100px;
+        color: rgb(164, 164, 164);
+        margin: 0;
+        word-break: break-all
+    }
+    
+    
+    .bar{
+        background-color:var(--secondary-color) ;
+        margin: 30px 0 10px 0;
+    }
+    .bar h2{
+        font-size: var(--third-font-size);
+        font-weight: 200px;
+        margin: 0 0 0 20px;
+        padding: 5px 0;
+        color: rgb(212, 216, 219);
+    }
+    
+    .contact{
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        margin: 20px 20px 0 20px ;
+    }
+    
+    .contact h4 , .contact h1{
+        margin: 0;
+        padding: 0;
+    }
+    
+    #part3{
+        gap: 20px !important;
+    }
+    
+    #part4{
+        gap: 20px !important;
+    }
+    
+    .language{
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding: 0 5%;
+    }
+    
+    .language .h4-rate{
+        text-align: end;
+    }
+    
+    .main-rate{
+        width: 100%;
+        height: 15px;
+        background-color: var(--secondary-color);
+    }
+    
+    .rate{
+        height: 15px;
+        background-color: aliceblue;
+    }
+    
+    
+    .container{
+        width: 94%;
+        margin: auto;
+        padding: 10px 0 30px 0;
+        border-bottom: 1px solid black;
+    }
+    
+    .text{
+        font-size: var(--secondary-font-size);
+        font-weight: 500px;
+        color: rgb(69, 69, 69);
+        margin: 0;
+        font-family: "Combo", cursive;
+    }
+    
+    .container-bar{
+        width: 94%;
+        margin: auto;
+        padding: 10px 0 10px 0;
+        border-bottom: 1px solid black;
+    }
+    
+    .container-bar h1{
+        color: #003060;
+    }
+    
+    /* .container.skills{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        justify-content: space-between;
+    } */
+    
+    .skill{
+        width: 94%;
+        margin: auto;
+    }
+    
+    /* .container.skills .skill ul li{
+        text-align: center;
+    } */
+    
+    .container.skills .skill ul li {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .container.work{
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        justify-content: space-between;
+    }
+    .work .work-date{
+        width: 20%;
+        margin-top: 20px;
+    }
+    
+    .work .main-work{
+        width: 80%;
+        margin-top: 20px;
+    }
+    
+    .main-work h1{
+        font-size: var(--primary-font-size);
+        font-weight: 500px;
+        color: black;
+        margin-bottom: 10px;
+        padding: 0;
+    }
+    
+    .main-work h4{
+        font-size: var(--secondary-font-size);
+        font-weight: 500px;
+        color: rgb(33, 33, 33);
+        margin-bottom: 30px;
+        padding: 0;
+    }
+    
+    .main-work ul{
+        margin: 0;
+        padding-left: 15px;
+    }
+    
+    .main-work ul li{
+        margin: 10px 0;
+    }
+    
+    .education h1{
+        font-size: var(--primary-font-size);
+        font-weight: 500px;
+        color: black;
+        margin-bottom: 10px;
+        padding: 0;
+        text-align: center;
+        margin-top: 10px;
+    }
+    
+    .education h4{
+        font-size: var(--secondary-font-size);
+        font-weight: 500px;
+        color: rgb(33, 33, 33);
+        margin-bottom: 20px;
+        padding: 0;
+        text-align: center;
+    }
+    
+    .certificate{
+        margin:20px 0;
+    }
+    
+    .certificate h1{
+        font-size: var(--third-font-size);
+        font-weight: 500px;
+        color: black;
+        margin-bottom: 10px;
+        padding: 0;
+        text-align: center;
+        margin-top: 10px;
+    }
+    
+    .certificate h4{
+        font-size: var(--secondary-font-size);
+        font-weight: 500px;
+        color: rgb(33, 33, 33);
+        margin-bottom: 20px;
+        padding: 0;
+        text-align: center;
+    }
+    
+    .interests li {
+        font-size: var(--secondary-font-size);
+        font-weight: 500px;
+        color: rgb(47, 43, 43);
+        margin-bottom: 20px;
+        padding: 0;
+    }
+    </style>
+</head>
+<body>
+        
+    <div id="main" style="margin:auto;">
+            <div id="section1">
+                <div id="part1" class="part1" >
+                    <img style="margin-top: 15px;" width="80%" src="file:///C:/xampp/htdocs/server/files/myphoto1.jpeg" >
+                    <h1>Youssef Fned</h1>
+                    <h4>Full Stack Web Developer</h4>
+                    <h4 style="margin-top: 15px; margin-bottom:-15px" >born in 2004-11-13</h4>
+                </div>
+                <div class="bar" ><h2>Contact</h2></div>
+                <div class="part1" >
+                    <div class="contact" >
+                        <h1>Adress</h1>
+                        <h4>Sfax,Tunisia,3012</h4>
+                    </div>
+                    <div class="contact" >
+                        <h1>Phone</h1>
+                        <h4>+216 58988448</h4>
+                    </div>
+                    <div class="contact" >
+                        <h1>Email</h1>
+                        <h4>fnedyoussef222@gmail.com</h4>
+                    </div>
+                    
+            <div class="contact" >
+            <a href="https://twitter.com/YoussefFned" target="_blank" style="font-size:1.75em;color: rgb(212, 216, 219);font-weight:500;" >
+                twitter
+            </a>
+            </div>
+            <div class="contact" >
+            <a href="https://www.facebook.com/youssef.fned.7/" target="_blank" style="font-size:1.75em;color: rgb(212, 216, 219);font-weight:500;" >
+                facebook
+            </a>
+            </div>
+            <div class="contact" >
+            <a href="https://github.com/fned-ship" target="_blank" style="font-size:1.75em;color: rgb(212, 216, 219);font-weight:500;" >
+                github
+            </a>
+            </div>
+            <div class="contact" >
+            <a href="https://www.linkedin.com/in/fned-youssef-9a885421b/" target="_blank" style="font-size:1.75em;color: rgb(212, 216, 219);font-weight:500;" >
+                linkedin
+            </a>
+            </div>
+                </div>
+                <div class="bar" ><h2>Languages</h2></div>
+                <div class="part1" id="part3" >
+                    
+            <div  class="language" >
+                <h4>Arabic</h4>
+                <div class="main-rate" >
+                    <div class="rate" style="width: 100%;" ></div>
+                </div>
+                <h4  class="h4-rate" >excellent</h4>
+            </div>
+            
+            <div  class="language" >
+                <h4>English</h4>
+                <div class="main-rate" >
+                    <div class="rate" style="width: 80%;" ></div>
+                </div>
+                <h4  class="h4-rate" >very good</h4>
+            </div>
+            
+            <div  class="language" >
+                <h4>French</h4>
+                <div class="main-rate" >
+                    <div class="rate" style="width: 60%;" ></div>
+                </div>
+                <h4  class="h4-rate" >good</h4>
+            </div>
+            
+            <div  class="language" >
+                <h4>German</h4>
+                <div class="main-rate" >
+                    <div class="rate" style="width: 40%;" ></div>
+                </div>
+                <h4  class="h4-rate" >average</h4>
+            </div>
+            
+                </div>
+                <div class="bar" style="display:flex !important;" ><h2>Software</h2></div>
+                <div class="part1" id="part4" style="display:flex !important;" >
+                    
+            <div  class="language" >
+                <h4>HTML5</h4>
+                <div class="main-rate" >
+                    <div class="rate" style="width: 100%;" ></div>
+                </div>
+                <h4  class="h4-rate" >excellent</h4>
+            </div>
+            
+            <div  class="language" >
+                <h4>CSS3</h4>
+                <div class="main-rate" >
+                    <div class="rate" style="width: 100%;" ></div>
+                </div>
+                <h4  class="h4-rate" >excellent</h4>
+            </div>
+            
+            <div  class="language" >
+                <h4>JavaScript</h4>
+                <div class="main-rate" >
+                    <div class="rate" style="width: 100%;" ></div>
+                </div>
+                <h4  class="h4-rate" >excellent</h4>
+            </div>
+            
+            <div  class="language" >
+                <h4>TypeScript</h4>
+                <div class="main-rate" >
+                    <div class="rate" style="width: 100%;" ></div>
+                </div>
+                <h4  class="h4-rate" >excellent</h4>
+            </div>
+            
+            <div  class="language" >
+                <h4>jQuery</h4>
+                <div class="main-rate" >
+                    <div class="rate" style="width: 80%;" ></div>
+                </div>
+                <h4  class="h4-rate" >very good</h4>
+            </div>
+            
+            <div  class="language" >
+                <h4>React JS</h4>
+                <div class="main-rate" >
+                    <div class="rate" style="width: 60%;" ></div>
+                </div>
+                <h4  class="h4-rate" >good</h4>
+            </div>
+            
+            <div  class="language" >
+                <h4>Bootstrap</h4>
+                <div class="main-rate" >
+                    <div class="rate" style="width: 40%;" ></div>
+                </div>
+                <h4  class="h4-rate" >average</h4>
+            </div>
+            
+            <div  class="language" >
+                <h4>Sass</h4>
+                <div class="main-rate" >
+                    <div class="rate" style="width: 40%;" ></div>
+                </div>
+                <h4  class="h4-rate" >average</h4>
+            </div>
+            
+            <div  class="language" >
+                <h4>PHP</h4>
+                <div class="main-rate" >
+                    <div class="rate" style="width: 80%;" ></div>
+                </div>
+                <h4  class="h4-rate" >very good</h4>
+            </div>
+            
+            <div  class="language" >
+                <h4>SQL - MySQL</h4>
+                <div class="main-rate" >
+                    <div class="rate" style="width: 80%;" ></div>
+                </div>
+                <h4  class="h4-rate" >very good</h4>
+            </div>
+            
+            <div  class="language" >
+                <h4>REST API</h4>
+                <div class="main-rate" >
+                    <div class="rate" style="width: 100%;" ></div>
+                </div>
+                <h4  class="h4-rate" >excellent</h4>
+            </div>
+            
+                </div>
+            </div>
+            <div id="section2" >
+                <div class="container">
+                    <p class="text" >I'm a highly skilled and versatile full stack web developer with a passion for crafting innovative digital solutions. Knowledgeable in user interface, testing, and debugging processes. With a solid foundation in both front-end and back-end development and also API, I have two years experience in front-end and one year experience in back-end , ranging from dynamic and interactive websites to complex web applications , i'm eager to be challenged in order to interact with a team , grow and further improve my skills . </p>
+                </div>
+                <div class="container-bar"><h1>Skills</h1></div>
+                <div class="container skills">
+                    <div class="skill" >
+                        <ul>
+                            <li>
+                                <p style="margin: 0; padding:0" >&#9679 self-motivated</p>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(0,1)" onclick="starClick(0,1)" id="star10" width="24" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(1,1)" onclick="starClick(1,1)" width="24" id="star11" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(2,1)" onclick="starClick(2,1)" width="24" id="star12" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(3,1)" onclick="starClick(3,1)" width="24" id="star13" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(4,1)" onclick="starClick(4,1)" width="24" id="star14" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                </div>
+                            </li>
+                            <li>
+                                <p style="margin: 0; padding:0" >&#9679 software-proficiency</p>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(0,1)" onclick="starClick(0,1)" id="star10" width="24" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(1,1)" onclick="starClick(1,1)" width="24" id="star11" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(2,1)" onclick="starClick(2,1)" width="24" id="star12" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(3,1)" onclick="starClick(3,1)" width="24" id="star13" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(4,1)" onclick="starClick(4,1)" width="24" id="star14" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                </div>
+                            </li>
+                            <li>
+                                <p style="margin: 0; padding:0" >&#9679 dependable and responsible</p>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(0,1)" onclick="starClick(0,1)" id="star10" width="24" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(1,1)" onclick="starClick(1,1)" width="24" id="star11" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(2,1)" onclick="starClick(2,1)" width="24" id="star12" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(3,1)" onclick="starClick(3,1)" width="24" id="star13" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(4,1)" onclick="starClick(4,1)" width="24" id="star14" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                </div>
+                            </li>
+                            <li>
+                                <p style="margin: 0; padding:0" >&#9679 critical thinking</p>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(0,1)" onclick="starClick(0,1)" id="star10" width="24" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(1,1)" onclick="starClick(1,1)" width="24" id="star11" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(2,1)" onclick="starClick(2,1)" width="24" id="star12" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(3,1)" onclick="starClick(3,1)" width="24" id="star13" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(4,1)" onclick="starClick(4,1)" width="24" id="star14" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                </div>
+                            </li>
+                            <li>
+                                <p style="margin: 0; padding:0" >&#9679 multitasking abilities</p>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(0,1)" onclick="starClick(0,1)" id="star10" width="24" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(1,1)" onclick="starClick(1,1)" width="24" id="star11" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(2,1)" onclick="starClick(2,1)" width="24" id="star12" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(3,1)" onclick="starClick(3,1)" width="24" id="star13" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(4,1)" onclick="starClick(4,1)" width="24" id="star14" height="24" style="fill:rgba(0, 0, 0, 0.8)"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                </div>
+                            </li>
+                            <li>
+                                <p style="margin: 0; padding:0" >&#9679 training and development</p>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(0,1)" onclick="starClick(0,1)" id="star10" width="24" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(1,1)" onclick="starClick(1,1)" width="24" id="star11" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(2,1)" onclick="starClick(2,1)" width="24" id="star12" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(3,1)" onclick="starClick(3,1)" width="24" id="star13" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(4,1)" onclick="starClick(4,1)" width="24" id="star14" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                </div>
+                            </li>
+                            <li>
+                                <p style="margin: 0; padding:0" >&#9679 excellent communication</p>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(0,1)" onclick="starClick(0,1)" id="star10" width="24" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(1,1)" onclick="starClick(1,1)" width="24" id="star11" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(2,1)" onclick="starClick(2,1)" width="24" id="star12" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(3,1)" onclick="starClick(3,1)" width="24" id="star13" height="24" style="fill:rgba(0, 0, 0, 0.8)"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(4,1)" onclick="starClick(4,1)" width="24" id="star14" height="24" style="fill:rgba(0, 0, 0, 0.8)"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg> 
+                                </div>
+                            </li>
+                            <li>
+                                <p style="margin: 0; padding:0" >&#9679 problem-solving</p>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(0,1)" onclick="starClick(0,1)" id="star10" width="24" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(1,1)" onclick="starClick(1,1)" width="24" id="star11" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(2,1)" onclick="starClick(2,1)" width="24" id="star12" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(3,1)" onclick="starClick(3,1)" width="24" id="star13" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" onmouseover="starHover(4,1)" onclick="starClick(4,1)" width="24" id="star14" height="24" style="fill:#0045ff"><path d="M21.947 9.179a1.001 1.001 0 0 0-.868-.676l-5.701-.453-2.467-5.461a.998.998 0 0 0-1.822-.001L8.622 8.05l-5.701.453a1 1 0 0 0-.619 1.713l4.213 4.107-1.49 6.452a1 1 0 0 0 1.53 1.057L12 18.202l5.445 3.63a1.001 1.001 0 0 0 1.517-1.106l-1.829-6.4 4.536-4.082c.297-.268.406-.686.278-1.065z"></path></svg>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="container-bar" style="display:none !important;" ><h1>Work history</h1></div>
+                <div class="container work" style="display:none !important;"  >
+                    <div class="work-date" >
+                        0000-00-00
+                    </div>
+                    <div class="main-work" >
+                        <h1></h1>
+                        <h4>,,</h4>
+                        <ul>
+                            <li>skipped</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="container-bar"><h1>Education</h1></div>
+                <div class="container education" >
+                    <h1>Baccalaureate Diploma: technology</h1>
+                    
+                    <h4>Lycée Gremda-gremda,sfax</h4>
+                    <h4 style="word-break: break-word; ">I have excellent grades especially in computer science and mathematics</h4>
+                </div>
+                <div class="container-bar" style="display:block !important;" ><h1>Certifications</h1></div>
+                <div class="container" style="display:block !important;" >
+                    
+            <div class="certificate" >
+                <h1>HTML  2021-07-24</h1>
+                <h4>online course , SHIYAR ACADEMY</h4>
+            </div>
+            
+            <div class="certificate" >
+                <h1>CSS  2021-08-08</h1>
+                <h4>online course , SHIYAR ACADEMY</h4>
+            </div>
+            
+            <div class="certificate" >
+                <h1>JavaScript  2021-09-06</h1>
+                <h4>online course , SHIYAR ACADEMY</h4>
+            </div>
+            
+            <div class="certificate" >
+                <h1>PHP  2022-08-26</h1>
+                <h4>online course , SHIYAR ACADEMY</h4>
+            </div>
+            
+            <div class="certificate" >
+                <h1>SQL - MySQL  2022-08-26</h1>
+                <h4>online course , SHIYAR ACADEMY</h4>
+            </div>
+            
+                </div>
+                <div class="container-bar" style="display:block !important;" ><h1>Hobbies</h1></div>
+                <div class="container interests " style="display:block !important;" >
+                    <ul>
+                        <li>Chess</li><li>Reading</li>
+                    </ul>
+                </div>
+            </div>
+    </div>
+    
+</body>
+</html>

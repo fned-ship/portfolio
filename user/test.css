@@ -1,0 +1,23 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    margin: 0;
+}
+
+#main{
+    display: flex;
+    flex-direction: row;
+}
+
+#section1{
+    width: 25%;
+    background-color: rgb(45, 45, 151);
+}
+
+#section2{
+    width: 75%;
+    background-color: rgb(168, 168, 177);
+}

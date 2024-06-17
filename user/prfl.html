@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="update.css">
+</head>
+<body>
+<div class="full-screen-container">
+    <div class="update-container">
+      <img src='../file/landscape1.jpg' class="user-img" id='userImg'/>
+      <form class="form" method="POST" >
+        <div class="input-group" id="fNameDiv" >
+            <input type="text" name="Fname" id="Fname" required >
+        </div>
+        <div class="input-group" id="lNameDiv" >
+            <input type="text" name="Lname" id="Lname" required >
+        </div>
+        <div class="input-group" id="passwordDiv" >
+            <input type="password" name="password" id="password" required >
+        </div>
+
+        <button type="submit" name='update' class="update-button">update</button>
+        <a class="back-home" href="index.php">  back home </a>
+      </form>
+      <h1 class="error-msg" id='errorMsg' ></h1>
+    </div>
+</div>
+<?php 
+session_start();
+if(isset($_SESSION['user'])){
+    if($_SESSION['user']->role === "user"){
+        $file=$_SESSION['user']->file;
+        if($file!=""){
+            $imgSrc = "data:image/jpeg;base64,".base64_encode($file);
+        }else{
+            $imgSrc = "../file/landscape1.jpg";
+        }
+        echo "<script>
+        var userImg=document.getElementById('userImg');
+        var Fname=document.getElementById('Fname');
+        var Lname=document.getElementById('Lname');
+        var password=document.getElementById('password');
+        var update=document.getElementById('update');
+
+        Fname.value='".$_SESSION['user']->firstName."';
+        Lname.value='".$_SESSION['user']->lastName."';
+        password.value='".$_SESSION['user']->password."';
+        userImg.src='".$imgSrc."';
+        </script>";
+
+        if(isset($_POST['update'])){
+            $username = "root";
+            $password = "";
+            $database = new PDO("mysql:host=localhost; dbname=yousseffned;",$username,$password);
+    
+            $updateUserData = $database->prepare("UPDATE users SET firstName = :fName ,password = :password ,lastName=:lName WHERE id = :id ");
+            $updateUserData->bindParam('fName',$_POST['Fname']);
+            $updateUserData->bindParam('password',$_POST['password']);
+            $updateUserData->bindParam('lName',$_POST['Lname']);
+            $updateUserData->bindParam('id',$_POST['update']);
+
+            if($updateUserData->execute()){
+                echo '<script>
+                var errorMsg=document.getElementById("errorMsg");
+                errorMsg.innerText="data has been successfully updated";
+                errorMsg.style.color="hsl(var(--success-hsl))";
+                </script>';
+                $user =  $database->prepare("SELECT * FROM users WHERE id = :id ");
+                $user->bindParam('id',$_POST['update']);
+                $user->execute();   
+                $_SESSION['user'] = $user->fetchObject();
+                header("refresh:1;");
+            }else{
+                echo '<script>
+                var errorMsg=document.getElementById("errorMsg");
+                errorMsg.innerText="something went wrong while updating data";
+                errorMsg.color="hsl(var(--error-hsl))";
+                </script>';
+            }
+        }
+    }else{
+        session_unset();
+        session_destroy();
+        header("location:http://localhost/server/login.php",true);  
+    }
+}else{
+    session_unset();
+    session_destroy();
+    header("location:http://localhost/server/login.php",true);  
+}
+
+?>
+
+</body>
+</html>
